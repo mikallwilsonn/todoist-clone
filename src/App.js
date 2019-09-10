@@ -1,11 +1,27 @@
+// ----
+// Dependencies
 import React from 'react';
+import { ProjectsProvider, SelectedProjectProvider } from './contexts';
 
 
-export const App = () => (
-  <div className="App">
-    <header className="App-header">
-      <p>Hello there!</p>
-    </header>
-  </div>
-);
+// ----
+// Child Components
+import { Header } from './components/layout/Header';
+import { Content } from './components/layout/Content';
+
+
+// ----
+// App component
+export const App = () => {
+  return (
+    <SelectedProjectProvider>
+      <ProjectsProvider>
+        <div className="App">
+          <Header />
+          <Content />
+        </div>
+      </ProjectsProvider>
+    </SelectedProjectProvider>
+  )
+};
 
