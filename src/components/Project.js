@@ -37,8 +37,8 @@ export const Project = ({ project }) => {
             <span
                 className="sidebar__project-delete"
                 data-testid="delete-project"
-                onClick={() => setShowConfirm(!showConfirm)}
-                onKeyDown={() => setShowConfirm(!showConfirm)}
+                onClick={() => setShowConfirm( !showConfirm )}
+                onKeyDown={() => setShowConfirm( !showConfirm )}
                 tabIndex={0}
                 role="button"
                 aria-label="Confirm deletion of project"

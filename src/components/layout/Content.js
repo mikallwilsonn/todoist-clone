@@ -8,6 +8,7 @@ import React from 'react';
 import { Sidebar } from './Sidebar';
 import { Tasks } from '../Tasks';
 
+
 // ----
 // Content component
 export const Content = () => {

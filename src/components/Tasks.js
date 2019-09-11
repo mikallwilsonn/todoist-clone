@@ -1,6 +1,6 @@
 // ----
 // Dependencies
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useTasks } from '../hooks';
 import { collatedTasks } from '../constants';
 import { getTitle, getCollatedTitle, collatedTasksExist } from '../helpers';
@@ -10,6 +10,7 @@ import { useSelectedProjectValue, useProjectsValue } from '../contexts';
 // ----
 // Child Components
 import { Checkbox } from './Checkbox';
+import { AddTask } from './AddTask';
 
 
 // ----
@@ -25,8 +26,8 @@ export const Tasks = () => {
         projectName = getTitle( projects, selectedProject ).name;
     }
 
-    if ( collatedTasksExist( selectedProject ) && selectedProject ) {
-        projectName = getCollatedTitle( collatedTasks, selectedProject ).name
+    if ( projects.length > 0 && collatedTasksExist( selectedProject ) && selectedProject ) {
+        projectName = getCollatedTitle( collatedTasks, selectedProject ).name;
     }
 
 
@@ -44,7 +45,10 @@ export const Tasks = () => {
             <ul className="tasks__list">
                 { tasks.map( task => (
                     <li key={task.id}>
-                        <Checkbox id={task.id} />
+                        <Checkbox 
+                            id={task.id} 
+                            taskDesc={task.task}
+                        />
 
                         <span>
                             {task.task}
@@ -52,6 +56,8 @@ export const Tasks = () => {
                     </li>
                 )) }
             </ul>
+
+            <AddTask />
         </div>
     );
 }

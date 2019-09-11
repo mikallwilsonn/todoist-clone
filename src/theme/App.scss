@@ -4,7 +4,8 @@
 @import url( 'https://fonts.googleapis.com/css?family=Roboto:400,700,900' );
 
 
-// General Settings
+/* General Settings
+   ============================================ */
 html {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -31,14 +32,16 @@ ul {
     padding: 0;
 }
 
-// Variables
+
+/* Variables
+   ============================================ */
 $generic-box-shadow: rgba( 0, 0, 0, 0.1 ) 0px 0px 0px 1px, rgba( 0, 0, 0, 0.1 ) 0px 4px 11px;
 $generic-border: 1px solid #f1f1f1;
 $generic-bg: #db4c3f;
 
 
 /* Mixins
-    ============================================ */
+   ============================================ */
 @mixin box-overlay() {
     -webkit-box-shadow: $generic-box-shadow;
     box-shadow: $generic-box-shadow;
@@ -138,7 +141,7 @@ $generic-bg: #db4c3f;
 
 
 /* Darkmode
-    ============================================ */
+   ============================================ */
 .darkmode {
     header {
     -webkit-box-shadow: 0 1px 3px 0 rgba( 0, 0, 0, 0.15 );
@@ -150,7 +153,7 @@ $generic-bg: #db4c3f;
 
 
 /* Header
-    ============================================ */
+   ============================================ */
 header {
     border-bottom: solid 1px #ca2100;
     background-color: $generic-bg;
@@ -228,9 +231,16 @@ header {
                             @include transparent-button();
                             color: white;
                             cursor: pointer;
+                            background-color: transparent !important;
+
+                            svg {
+                                width: 20px;
+                                height: 20px;
+                            }
                         }
                     }
 
+                    
                     &.settings__darkmode {
                         button {
                             @include transparent-button();
@@ -255,7 +265,7 @@ header {
 
 
 /* Sidebar
-    ============================================ */
+   ============================================ */
 .sidebar {
     @include no-select();
     width: 266px;
@@ -281,6 +291,8 @@ header {
 
     &__project {
         cursor: pointer;
+
+
 
         div:nth-child( 1 ) {
             padding: 5px 0;
@@ -382,7 +394,7 @@ header {
             color: #333;
             font-size: 15px;
             font-weight: bold;
-            padding-bottom: 20px;
+            padding-bottom:  0px;
         }
     }
 
@@ -436,7 +448,7 @@ header {
 }
 
 /* Show Confirm Delete
-    ============================================ */
+   ============================================ */
 .project-delete-modal {
     position: relative;
 
@@ -470,7 +482,7 @@ header {
 
 
 /* Main Content
-    ============================================ */
+   ============================================ */
 .content {
     display: grid;
     -webkit-box-align: center;
@@ -483,7 +495,7 @@ header {
 
 
 /* Tasks
-    ============================================ */
+   ============================================ */
 .tasks {
     width: 656px;
     background-color: white;
@@ -552,7 +564,7 @@ header {
 
 
 /* Add Task
-    ============================================ */
+   ============================================ */
 .add-task {
     &__overlay {
         background: rgba( 102, 102, 102, 0.5 );
@@ -659,7 +671,7 @@ header {
 
 
 /* Task Date
-    ============================================ */
+   ============================================ */
 .task-date {
     @include box-overlay();
     background-color: #fff;
@@ -668,7 +680,13 @@ header {
 
     &__list li {
         @include task-item();
-        padding: 0;
+        padding: 15px 25px;
+
+        span {
+            svg {
+                margin-right: 15px;
+            }
+        }
 
         div:nth-child( 1 ) {
             padding: 10px;
@@ -693,7 +711,7 @@ header {
 
 
 /* Project Overlay
-    ============================================ */
+   ============================================ */
 .project-overlay {
     @include box-overlay();
     background-color: white;
@@ -705,7 +723,7 @@ header {
 
     &__list li {
         @include task-item();
-        padding: 0;
+        padding: 15px 25px;
 
         div:nth-child( 1 ) {
             width: 100%;
@@ -716,7 +734,7 @@ header {
 
 
 /* Add Project
-    ============================================ */
+   ============================================ */
 .add-project {
     padding-left: 13px;
     padding-right: 20px;
