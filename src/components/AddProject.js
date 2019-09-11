@@ -15,7 +15,7 @@ export const AddProject = ({ shouldShow = false }) => {
 
     const projectId = generatePushId();
 
-    const { setProjects } = useProjectsValue();
+    const { projects, setProjects } = useProjectsValue();
 
     const addProject = () =>
      projectName &&
@@ -28,7 +28,7 @@ export const AddProject = ({ shouldShow = false }) => {
             userId: 'werERThdgerttyjtwy'
         })
         .then(() => {
-            setProjects([]);
+            setProjects([ ...projects ]);
             setProjectName( '' );
             setShow( false );
         });
@@ -56,9 +56,13 @@ export const AddProject = ({ shouldShow = false }) => {
                     </button>
 
                     <span 
+                        arial-label="Cancel adding project"
                         data-testid="hide-project-overlay" 
                         className="add-project__cancel" 
                         onClick={() => setShow( false )}
+                        onKeyDown={() => setShow( false )}
+                        role="button" 
+                        tabIndex={0}
                     >
                         Cancel
                     </span>
@@ -72,7 +76,11 @@ export const AddProject = ({ shouldShow = false }) => {
             <span
                 data-testid="add-project-action"
                 className="add-project__text" 
-                onClick={() => setShow( !show )}
+                onClick={() => setShow( !show )} 
+                onKeyDown={() => setShow( !show )}
+                role="button" 
+                tabIndex={0} 
+                aria-label="Add Project"
             >
                 Add Project
             </span>
