@@ -74,5 +74,14 @@ describe( '<AddTask />', () => {
 
             expect( queryByTestId( 'add-task-main' )).toBeTruthy();
         });
+
+
+        it( 'renders the <AddTask /> main showable when clicked', () => {
+            const { queryByTestId } = render( <AddTask showAddTaskMain /> );
+
+            fireEvent.click( queryByTestId( 'show-main-action' ));
+
+            expect( queryByTestId( 'add-task-main' )).toBeTruthy();
+        });
     });
 });
