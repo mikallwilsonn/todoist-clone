@@ -44,7 +44,7 @@ export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) => {
                                 setShowTaskDate( false );
                                 setTaskDate( moment().add( 1, 'days' ).format( 'DD-MM-YYYY' ));
                             }} 
-                            onKeydown={() => {
+                            onKeyDown={() => {
                                 setShowTaskDate( false );
                                 setTaskDate( moment().add( 1, 'days' ).format( 'DD-MM-YYYY' ));
                             }} 
